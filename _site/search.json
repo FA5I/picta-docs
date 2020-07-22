@@ -1,0 +1,145 @@
+[
+
+
+{
+"title": "2D Charts",
+"tags": "",
+"keywords": "",
+"url": "2D_Scatter.html",
+"summary": "2D charts can be easily created to explore data relationships"
+}
+,
+
+
+
+
+
+{
+"title": "The Picta Canvas",
+"tags": "",
+"keywords": "",
+"url": "canvas.html",
+"summary": "The Canvas is the most general component in the Picta library"
+}
+,
+
+
+
+{
+"title": "Chart",
+"tags": "",
+"keywords": "",
+"url": "chart.html",
+"summary": "Charts structure how the graph is rendered"
+}
+,
+
+
+
+{
+"title": "Config",
+"tags": "",
+"keywords": "",
+"url": "config.html",
+"summary": "Config specifies interactivity of a chart"
+}
+,
+
+
+
+
+
+{
+"title": "Your First Chart",
+"tags": "",
+"keywords": "",
+"url": "first_chart.html",
+"summary": "This section will outline how to create your first chart using the Picta library."
+}
+,
+
+
+
+{
+"title": "Picta",
+"tags": "getting_started",
+"keywords": "homepage",
+"url": "index.html",
+"summary": "Picta is a a graphing library for Scala. It is designed to take a grammatical approach to graph construction, which means charts are composable and easy to use."
+}
+,
+
+
+
+{
+"title": "Introduction",
+"tags": "",
+"keywords": "",
+"url": "introduction.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Chart Layout",
+"tags": "",
+"keywords": "",
+"url": "layout.html",
+"summary": "Chart Layouts specify in detail how the plot will be rendered"
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Series",
+"tags": "",
+"keywords": "",
+"url": "series.html",
+"summary": "Series components wrap data and specify how they should be transformed"
+}
+,
+
+
+
+{
+"title": "Series",
+"tags": "",
+"keywords": "",
+"url": "series.html",
+"summary": "Series components wrap data and specify how they should be transformed"
+}
+,
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "assetscssstyle.css",
+"summary": ""
+}
+
+
+
+
+
+
+]
