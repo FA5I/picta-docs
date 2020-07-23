@@ -5,3 +5,6 @@ topnav:
   items:
     - title: GitHub
       external_url: https://github.com/cedricmjohn/picta
+    
+    - title: API
+      external_url: https://acse-fk4517.github.io/picta-api/

@@ -11,7 +11,15 @@ summary: Picta is a a graphing library for Scala. It is designed to take a gramm
 
 Picta is a graphing library for Scala built by the Carbonate Research Lab at Imperial College London.
 
-The goal of Picta is to be an easy to use, composable graphics library. We felt that such a library was missing from the Scala, and indeed JVM platform. 
+The goal of Picta is to be an easy to use, composable graphics library. We felt that such a library was missing from the Scala, and indeed the JVM platform. 
+
+Picta provides the following benefits over existing libraries:
+
+* **Expressive API**: Picta reduces boilerplate by creating a DSL that users can leverage to write expressive plot compositions in a minimal amount of code
+
+* **Interactive Plots**: Charts are interactive and can be used to actively explore the data sets
+
+* **Jupyter Integration**: Picta fully supports the Almond kernel, and so can become an integral part of the scientific workflow
 
 Often libraries are limited in functionality, require large amounts of boilerplate, or are just fundamentally ***not fun*** to use.
 

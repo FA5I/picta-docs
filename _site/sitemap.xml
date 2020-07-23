@@ -6,10 +6,22 @@
   
   
   <url>
-    <loc>http://localhost:4000/2D_Scatter.html</loc>
+    <loc>http://localhost:4000/2D.html</loc>
   </url>
   
   
+  
+  <url>
+    <loc>http://localhost:4000/3D.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/animations.html</loc>
+  </url>
   
   
   
@@ -58,12 +70,6 @@
   
   
   
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/series.html</loc>
-  </url>
   
   
   

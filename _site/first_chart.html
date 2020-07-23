@@ -128,6 +128,10 @@
                 
                 
                 
+                <li><a href="https://acse-fk4517.github.io/picta-api/" target="_blank" rel="noopener">API</a></li>
+                
+                
+                
                 <!-- entries with drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
@@ -248,7 +252,21 @@
           
           
           
-          <li><a title="2D Scatter Chart" href="2D_Scatter.html">2D Scatter Chart</a></li>
+          <li><a title="2D Charts" href="2D.html">2D Charts</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="3D Charts" href="3D.html">3D Charts</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Animations" href="animations.html">Animations</a></li>
           
           
           
@@ -349,18 +367,20 @@ $('#toc').on('click', 'a', function() {
 
 <p>The library can be loaded in the notebook using the following commands:</p>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// put this line in a seperate cell from the others</span>
-<span class="nv">interp</span><span class="o">.</span><span class="py">repositories</span><span class="o">()</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span><span class="nv">coursierapi</span><span class="o">.</span><span class="py">MavenRepository</span><span class="o">.</span><span class="py">of</span><span class="o">(</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">interp</span><span class="o">.</span><span class="py">repositories</span><span class="o">()</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span><span class="nv">coursierapi</span><span class="o">.</span><span class="py">MavenRepository</span><span class="o">.</span><span class="py">of</span><span class="o">(</span>
     <span class="s">"https://jitpack.io"</span>
 <span class="o">))</span>
+</code></pre></div></div>
 
-<span class="k">import</span> <span class="nn">$ivy.</span> <span class="n">`org.carbonateresearch::picta:0.1`</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">$ivy.</span> <span class="n">`org.carbonateresearch::picta:0.1`</span>
 
 <span class="c1">// required to initialize jupyter notebook mode</span>
 <span class="k">import</span> <span class="nn">org.carbonateresearch.picta.render.Html.initNotebook</span> 
 
 <span class="c1">// stops ugly output</span>
 <span class="nf">initNotebook</span><span class="o">()</span> 
+
+<span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
 </code></pre></div></div>
 
 <h3 id="2-create-some-dummy-data">2. Create some dummy data</h3>
@@ -370,7 +390,6 @@ $('#toc').on('click', 'a', function() {
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// lets create some dummy data to use in our examples</span>
 <span class="k">val</span> <span class="nv">x</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
 <span class="k">val</span> <span class="nv">y</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">z</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
 </code></pre></div></div>
 
 <h3 id="3-construct-the-chart">3. Construct the Chart</h3>
@@ -379,13 +398,17 @@ $('#toc').on('click', 'a', function() {
 
 <p>As we are going to plot 2D data, we can use the appropriately named <strong>XY</strong> class:</p>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// creates a XY 'Series' from our data. XY is for 2D data</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// create some dummy data</span>
+<span class="k">val</span> <span class="nv">x</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">y</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
+
+<span class="c1">// create a 2D series</span>
 <span class="k">val</span> <span class="nv">series</span> <span class="k">=</span> <span class="nc">XY</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="n">asType</span> <span class="nc">SCATTER</span> <span class="n">drawStyle</span> <span class="nc">MARKERS</span>
 
-<span class="c1">// we then add the series to a Chart component</span>
+<span class="c1">// create a chart by adding to it a data series. We set the title as 'First Chart'</span>
 <span class="k">val</span> <span class="nv">chart</span> <span class="k">=</span> <span class="nc">Chart</span><span class="o">()</span> <span class="n">addSeries</span> <span class="n">series</span> <span class="n">setTitle</span> <span class="s">"First Chart"</span>
 
-<span class="c1">// as we only have a single chart, we can simply plot directly from the chart itself</span>
+<span class="c1">// if we have a single chart, then we do not need to use the Canvas and can simply call chart.plot</span>
 <span class="nv">chart</span><span class="o">.</span><span class="py">plotInline</span>
 </code></pre></div></div>
 
@@ -403,6 +426,10 @@ $('#toc').on('click', 'a', function() {
     </div>
 
 
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+<noscript>Please enable JavaScript to load the comments.</noscript>
+
 
 
 </div>
@@ -413,7 +440,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 Carbonate Research Lab, Imperial College London. All rights reserved. <br />
- Site last generated: Jul 22, 2020 <br />
+ Site last generated: Jul 23, 2020 <br />
 <p><img id="footer-logo" src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

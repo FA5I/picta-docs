@@ -27,35 +27,4 @@ The following is the constructor for the chart. Now in practice not all of these
 
 As the following example makes  clear, we do not need to specify every single Component that constructs a Chart fully. We can sculpt the Chart specifying options where we need to.
 
-Run the following in a Jupyter notebook.
-
-```scala
-interp.repositories() ++= Seq(coursierapi.MavenRepository.of(
-    "https://jitpack.io"
-))
-```
-
-```scala
-import $ivy. `org.carbonateresearch::picta:0.1`
-import org.carbonateresearch.picta.render.Html.initNotebook
-initNotebook()
-```
-
-```scala
-import org.carbonateresearch.picta._
-```
-
-```scala
-val x = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
-val y = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
-val z = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
-
-val chart2 = (
-    Chart()
-    addSeries (XY(x, y).setName("a").drawMarkers)
-).plotInline
-```
-
-If the above was succesful, you should see something like the following.
-
-![chart](images/components/chart/chart.png)
+An example can be found here: [Your First Chart](/first_chart.html)

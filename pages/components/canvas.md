@@ -32,19 +32,19 @@ interp.repositories() ++= Seq(coursierapi.MavenRepository.of(
 
 ```scala
 import $ivy. `org.carbonateresearch::picta:0.1`
+
 import org.carbonateresearch.picta.render.Html.initNotebook
 initNotebook()
-```
 
-```scala
 import org.carbonateresearch.picta._
+
+import org.carbonateresearch.picta.options._
 ```
 
+
 ```scala
-// create some dummy data
 val x = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
 val y = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
-val z = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
 
 // first define the x-axes we will use in the plot
 val ax1 = XAxis(title = "x axis 1")

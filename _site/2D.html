@@ -128,6 +128,10 @@
                 
                 
                 
+                <li><a href="https://acse-fk4517.github.io/picta-api/" target="_blank" rel="noopener">API</a></li>
+                
+                
+                
                 <!-- entries with drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
@@ -248,7 +252,21 @@
           
           
           
-          <li class="active"><a title="2D Scatter Chart" href="2D_Scatter.html">2D Scatter Chart</a></li>
+          <li class="active"><a title="2D Charts" href="2D.html">2D Charts</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="3D Charts" href="3D.html">3D Charts</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Animations" href="animations.html">Animations</a></li>
           
           
           
@@ -361,79 +379,58 @@ $('#toc').on('click', 'a', function() {
 </code></pre></div></div>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">$ivy.</span> <span class="n">`org.carbonateresearch::picta:0.1`</span>
-</code></pre></div></div>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.carbonateresearch.picta.render.Html.initNotebook</span>
+<span class="k">import</span> <span class="nn">org.carbonateresearch.picta.render.Html.initNotebook</span>
+
 <span class="nf">initNotebook</span><span class="o">()</span>
-</code></pre></div></div>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
-
-<span class="c1">// import the rest of the items we will need</span>
+<span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
+<span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.Marker</span>
 <span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.histogram.HistOptions</span>
 <span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.histogram2d.Hist2dOptions</span>
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.HORIZONTAL</span>
-
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.Marker</span>
 </code></pre></div></div>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// create some dummy data</span>
 <span class="k">val</span> <span class="nv">x</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
 <span class="k">val</span> <span class="nv">y</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
-</code></pre></div></div>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">marker</span> <span class="k">=</span> <span class="nc">Marker</span><span class="o">()</span> <span class="n">setColor</span> <span class="s">"rgb(102,0,0)"</span>
+<span class="k">val</span> <span class="nv">marker</span> <span class="k">=</span> <span class="nc">Marker</span><span class="o">()</span> <span class="n">setColor</span> <span class="s">"rgb(102,0,0)"</span>
 
-<span class="c1">// in these examples we will use function chaining. This technique allows the IDE to do heavylifting as it can</span>
-<span class="c1">// do code completion for the user</span>
 <span class="k">val</span> <span class="nv">series1</span> <span class="k">=</span> <span class="nc">XY</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> 
-            <span class="c1">// here we specify we want a scatter chart</span>
             <span class="o">.</span><span class="py">asType</span><span class="o">(</span><span class="nc">SCATTER</span><span class="o">)</span>
-            <span class="c1">// this just sets the name of the series; how it will be shown in the legend</span>
-            <span class="o">.</span><span class="py">setName</span><span class="o">(</span><span class="s">"points"</span><span class="o">)</span>
-            <span class="c1">// this tells picta to style the data points as markers</span>
             <span class="o">.</span><span class="py">drawMarkers</span>
-            <span class="c1">// as we assigned the marker toa value, we can pass it in the setMarker function</span>
+            <span class="o">.</span><span class="py">setName</span><span class="o">(</span><span class="s">"points"</span><span class="o">)</span>
             <span class="o">.</span><span class="py">setMarker</span><span class="o">(</span><span class="n">marker</span><span class="o">)</span>
 
-<span class="c1">// we can set the options for the 2D histogram as a seperate value</span>
 <span class="k">val</span> <span class="nv">hist2d_options</span> <span class="k">=</span> <span class="nc">Hist2dOptions</span><span class="o">(</span><span class="n">ncontours</span> <span class="k">=</span> <span class="mi">20</span><span class="o">,</span> <span class="n">reversescale</span> <span class="k">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">showscale</span> <span class="k">=</span> <span class="kc">true</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">series2</span> <span class="k">=</span> <span class="nc">XY</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> 
             <span class="o">.</span><span class="py">setName</span><span class="o">(</span><span class="s">"density"</span><span class="o">)</span>
-            <span class="c1">// here we tell Picta how to render the series</span>
             <span class="o">.</span><span class="py">asType</span><span class="o">(</span><span class="nc">HISTOGRAM2DCONTOUR</span><span class="o">)</span>
-            <span class="c1">// this sets the options</span>
             <span class="o">.</span><span class="py">setHist2dOptions</span><span class="o">(</span><span class="n">hist2d_options</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">series3</span> <span class="k">=</span> <span class="nc">XY</span><span class="o">(</span><span class="n">x</span> <span class="k">=</span> <span class="n">x</span><span class="o">)</span>
             <span class="o">.</span><span class="py">asType</span><span class="o">(</span><span class="nc">HISTOGRAM</span><span class="o">)</span>
             <span class="o">.</span><span class="py">setName</span><span class="o">(</span><span class="s">"histogram"</span><span class="o">)</span>
-            <span class="c1">// this tells picta to plot the series on the first x-axis and the second y-axis</span>
             <span class="o">.</span><span class="py">setAxes</span><span class="o">(</span><span class="nc">XAxis</span><span class="o">(),</span> <span class="nc">YAxis</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>
 
 <span class="k">val</span> <span class="nv">series4</span> <span class="k">=</span> <span class="o">(</span><span class="nc">XY</span><span class="o">(</span><span class="n">y</span><span class="o">)</span>
             <span class="o">.</span><span class="py">setName</span><span class="o">(</span><span class="s">"y density"</span><span class="o">)</span>
             <span class="o">.</span><span class="py">asType</span><span class="o">(</span><span class="nc">HISTOGRAM</span><span class="o">)</span>
-            <span class="c1">// we set this to sit on the second x axis we create</span>
             <span class="o">.</span><span class="py">setAxis</span><span class="o">(</span><span class="nc">XAxis</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>
             <span class="o">.</span><span class="py">setMarker</span><span class="o">(</span><span class="n">marker</span><span class="o">)</span>
-            <span class="c1">// this orientates the density histogram to be horizontal; so it makes sense when plotted</span>
             <span class="o">.</span><span class="py">setHistOptions</span><span class="o">(</span><span class="nc">HistOptions</span><span class="o">(</span><span class="n">orientation</span> <span class="k">=</span> <span class="nc">HORIZONTAL</span><span class="o">)))</span>
 
-<span class="c1">// here we create the individual axes. The domains range from 0.0 to 1, and so we give each axis a proportion</span>
 <span class="k">val</span> <span class="nv">ax1</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.85</span><span class="o">)</span>
 <span class="k">val</span> <span class="nv">ax2</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.85</span><span class="o">)</span>
 <span class="k">val</span> <span class="nv">ax3</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">position</span> <span class="k">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.85</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">)</span>
 <span class="k">val</span> <span class="nv">ax4</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">position</span> <span class="k">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.85</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">)</span>
 
-<span class="c1">// here we construct the layout seperately as to demonstrate how it would be done in practice</span>
 <span class="k">val</span> <span class="nv">layout</span> <span class="k">=</span> <span class="o">(</span>
     <span class="nc">ChartLayout</span><span class="o">(</span><span class="s">"Histogram2dContour With Density"</span><span class="o">,</span> <span class="n">autosize</span> <span class="k">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">showlegend</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> 
     <span class="nf">setAxes</span><span class="o">(</span><span class="n">ax1</span><span class="o">,</span> <span class="n">ax2</span><span class="o">,</span> <span class="n">ax3</span><span class="o">,</span> <span class="n">ax4</span><span class="o">)</span>
 <span class="o">)</span>
 
-<span class="c1">// here we leverage the Picta dsl to declaratively create the chart. The layout is set like any other value</span>
 <span class="k">val</span> <span class="nv">chart</span> <span class="k">=</span> <span class="nc">Chart</span><span class="o">()</span> <span class="nf">addSeries</span><span class="o">(</span><span class="n">series1</span><span class="o">,</span> <span class="n">series2</span><span class="o">,</span> <span class="n">series3</span><span class="o">,</span> <span class="n">series4</span><span class="o">)</span> <span class="n">setChartLayout</span> <span class="n">layout</span>
 
 <span class="nv">chart</span><span class="o">.</span><span class="py">plotInline</span>
@@ -449,6 +446,10 @@ $('#toc').on('click', 'a', function() {
     </div>
 
 
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+<noscript>Please enable JavaScript to load the comments.</noscript>
+
 
 
 </div>
@@ -459,7 +460,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 Carbonate Research Lab, Imperial College London. All rights reserved. <br />
- Site last generated: Jul 22, 2020 <br />
+ Site last generated: Jul 23, 2020 <br />
 <p><img id="footer-logo" src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

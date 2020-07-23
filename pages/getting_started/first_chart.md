@@ -23,7 +23,6 @@ The main components for building charts are:
     - `XYZ`:  This is series data for constructing a 3D chart
     - `Map`:  This is series data that constructs a Map chart
     
-
 4. `ChartLayout`: This configures various parts of how the `Chart` is represented on screen.
 
 `Chart` may occassionally also make use of the `Config` component for further configuration. `Config` specifies whether the plot is responsive.
@@ -35,11 +34,12 @@ For the code examples that follow, it will be assumed that the reader is working
 The library can be loaded in the notebook using the following commands:
 
 ```scala
-// put this line in a seperate cell from the others
 interp.repositories() ++= Seq(coursierapi.MavenRepository.of(
     "https://jitpack.io"
 ))
+```
 
+```scala
 import $ivy. `org.carbonateresearch::picta:0.1`
 
 // required to initialize jupyter notebook mode
@@ -47,6 +47,8 @@ import org.carbonateresearch.picta.render.Html.initNotebook
 
 // stops ugly output
 initNotebook() 
+
+import org.carbonateresearch.picta._
 ```
 
 ### 2. Create some dummy data
@@ -57,7 +59,6 @@ First we will create some dummy data:
 // lets create some dummy data to use in our examples
 val x = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
 val y = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
-val z = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
 ```
 
 ### 3. Construct the Chart
@@ -67,13 +68,17 @@ We are ready to construct the first main component for our chart; the **Series**
 As we are going to plot 2D data, we can use the appropriately named **XY** class:
 
 ```scala
-// creates a XY 'Series' from our data. XY is for 2D data
+// create some dummy data
+val x = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
+val y = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
+
+// create a 2D series
 val series = XY(x, y) asType SCATTER drawStyle MARKERS
 
-// we then add the series to a Chart component
+// create a chart by adding to it a data series. We set the title as 'First Chart'
 val chart = Chart() addSeries series setTitle "First Chart"
 
-// as we only have a single chart, we can simply plot directly from the chart itself
+// if we have a single chart, then we do not need to use the Canvas and can simply call chart.plot
 chart.plotInline
 ```
 

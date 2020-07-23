@@ -5,12 +5,34 @@
 "title": "2D Charts",
 "tags": "",
 "keywords": "",
-"url": "2D_Scatter.html",
+"url": "2D.html",
 "summary": "2D charts can be easily created to explore data relationships"
 }
 ,
 
 
+
+{
+"title": "3D Charts",
+"tags": "",
+"keywords": "",
+"url": "3D.html",
+"summary": "3D charts can easily be created to visualize data in a new way"
+}
+,
+
+
+
+
+
+{
+"title": "Animations",
+"tags": "",
+"keywords": "",
+"url": "animations.html",
+"summary": "All plots can be animated as a sequence of frames"
+}
+,
 
 
 
@@ -94,17 +116,6 @@
 
 
 
-
-
-
-{
-"title": "Series",
-"tags": "",
-"keywords": "",
-"url": "series.html",
-"summary": "Series components wrap data and specify how they should be transformed"
-}
-,
 
 
 

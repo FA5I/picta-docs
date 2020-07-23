@@ -48,8 +48,18 @@ entries:
   - title: Creating Charts
     output: web, pdf
     folderitems:
-    - title: 2D Scatter Chart
-      url: /2D_Scatter.html
+    - title: 2D Charts
+      url: /2D.html
+      output: web, pdf
+      type: homepage
+
+    - title: 3D Charts
+      url: /3D.html
+      output: web, pdf
+      type: homepage
+      
+    - title: Animations
+      url: /animations.html
       output: web, pdf
       type: homepage
     
