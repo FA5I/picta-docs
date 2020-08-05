@@ -29,43 +29,11 @@ The main components for building charts are:
 
 For the code examples that follow, it will be assumed that the reader is working in a Jupyter notebook.
 
-### 1. Loading the Library
-
-The library can be loaded in the notebook using the following commands:
-
-```scala
-interp.repositories() ++= Seq(coursierapi.MavenRepository.of(
-    "https://jitpack.io"
-))
-```
-
-```scala
-import $ivy. `org.carbonateresearch::picta:0.1`
-
-// required to initialize jupyter notebook mode
-import org.carbonateresearch.picta.render.Html.initNotebook 
-
-// stops ugly output
-initNotebook() 
-
-import org.carbonateresearch.picta._
-```
-
-### 2. Create some dummy data
-
-First we will create some dummy data:
-
-```scala
-// lets create some dummy data to use in our examples
-val x = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
-val y = List.range(0, 100).map(x => scala.util.Random.nextDouble() * 50)
-```
-
-### 3. Construct the Chart
+### 1. Code Up The Chart
 
 We are ready to construct the first main component for our chart; the **Series**.
 
-As we are going to plot 2D data, we can use the appropriately named **XY** class:
+As we are going to plot 2D data, we can use the appropriately named **XY** series. It will be assumed the reader is working in a Jupyter notebook.
 
 ```scala
 // create some dummy data
@@ -82,10 +50,10 @@ val chart = Chart() addSeries series setTitle "First Chart"
 chart.plotInline
 ```
 
-### 4. Admire the Result
+### 2. Admire The Result
 
 Your chart should like something below:
 
 ![first_chart](images/first_chart/first_chart.png)
 
-Congratulations! You have created your first chart using Picta.
+Congratulations! You have created your first chart using Picta. The rest of the documentation will go into more detail about configuration and common examples.

@@ -38,6 +38,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/common_examples.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/config.html</loc>
   </url>
   

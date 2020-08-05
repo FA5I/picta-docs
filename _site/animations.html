@@ -275,6 +275,22 @@
    </li>
      
       
+  
+  <li>
+      <a title="Common Examples" href="#">Common Examples</a>
+      <ul>
+          
+          
+          
+          <li><a title="Common Examples" href="common_examples">Common Examples</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
       
       <!-- if you aren't using the accordion, uncomment this block:
          <p class="external">
@@ -334,31 +350,22 @@ $('#toc').on('click', 'a', function() {
 
    <h3 id="introduction">Introduction</h3>
 
-<p>In Picta plots can be animated as a sequence of frames. In order to do this we pass in a list of series frames to the <code class="language-plaintext highlighter-rouge">Chart</code> component, then set <code class="language-plaintext highlighter-rouge">animated=true</code> in the <code class="language-plaintext highlighter-rouge">Canvas</code> component.</p>
+<p>In Picta plots can be animated as a sequence of frames.</p>
 
-<h3 id="an-example-constructing-an-2d-animated-chart">An Example: Constructing an 2D Animated Chart</h3>
+<p>In order to do this we pass in a list of series frames to the <code class="language-plaintext highlighter-rouge">Chart</code> component, then set <code class="language-plaintext highlighter-rouge">animated=true</code> in the <code class="language-plaintext highlighter-rouge">Canvas</code> component.</p>
 
-<h4 id="imports">Imports</h4>
+<h3 id="imports">Imports</h3>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">interp</span><span class="o">.</span><span class="py">repositories</span><span class="o">()</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span><span class="nv">coursierapi</span><span class="o">.</span><span class="py">MavenRepository</span><span class="o">.</span><span class="py">of</span><span class="o">(</span>
-    <span class="s">"https://jitpack.io"</span>
-<span class="o">))</span>
-</code></pre></div></div>
+<p>Here we import the necessary items to construct these examples.</p>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">$ivy.</span> <span class="n">`org.carbonateresearch::picta:0.1`</span>
-
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta.render.Html.initNotebook</span>
-
-<span class="nf">initNotebook</span><span class="o">()</span>
-
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
 
 <span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.ColorOptions._</span>
 </code></pre></div></div>
 
-<h4 id="2d-animated-chart">2D Animated Chart</h4>
+<h3 id="2d-animated-chart">2D Animated Chart</h3>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// creates random XY for testing purposes</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// creates random XY series for testing purposes</span>
 <span class="k">def</span> <span class="nf">createXYSeries</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">Color</span><span class="o">]</span>
 <span class="o">(</span><span class="n">numberToCreate</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">count</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">length</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">10</span><span class="o">)</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">XY</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">Double</span>, <span class="kt">T</span>, <span class="kt">T</span><span class="o">]]</span> <span class="k">=</span> <span class="o">{</span>
     <span class="nf">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">numberToCreate</span><span class="o">)</span> <span class="nc">Nil</span>
@@ -369,10 +376,9 @@ $('#toc').on('click', 'a', function() {
       <span class="n">series</span> <span class="o">::</span> <span class="nf">createXYSeries</span><span class="o">(</span><span class="n">numberToCreate</span><span class="o">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">length</span><span class="o">)</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">xaxis</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"X Variable"</span><span class="o">)</span> <span class="nf">setRange</span> <span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">10.0</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">yaxis</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"Y Variable"</span><span class="o">)</span> <span class="nf">setRange</span> <span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">10.0</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">xaxis</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"X Variable"</span><span class="o">)</span> <span class="nf">setLimits</span> <span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">10.0</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">yaxis</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">Y</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"Y Variable"</span><span class="o">)</span> <span class="nf">setLimits</span> <span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">10.0</span><span class="o">)</span>
 
 <span class="c1">// we can also specifiy the underlying layout directly - sometimes this can be useful</span>
 <span class="k">val</span> <span class="nv">layout</span> <span class="k">=</span> <span class="nc">ChartLayout</span><span class="o">(</span><span class="s">"Animation XY"</span><span class="o">)</span> <span class="nf">setAxes</span><span class="o">(</span><span class="n">xaxis</span><span class="o">,</span> <span class="n">yaxis</span><span class="o">)</span>
@@ -384,9 +390,14 @@ $('#toc').on('click', 'a', function() {
 <span class="nv">chart</span><span class="o">.</span><span class="py">plotInline</span>
 </code></pre></div></div>
 
-<h4 id="3d-animated-chart">3D Animated Chart</h4>
+<p>This will generate a plot that looks like the one below:</p>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">createXYZSeries</span><span class="o">(</span><span class="n">numberToCreate</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">count</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">length</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">10</span><span class="o">)</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">XYZ</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">Double</span>, <span class="kt">Double</span><span class="o">]]</span> <span class="k">=</span> <span class="o">{</span>
+<p><img src="images/charts/animationXY.png" alt="animationxy" /></p>
+
+<h3 id="3d-animated-chart">3D Animated Chart</h3>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// creates random XYZ series for testing purposes</span>
+<span class="k">def</span> <span class="nf">createXYZSeries</span><span class="o">(</span><span class="n">numberToCreate</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">count</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">length</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">10</span><span class="o">)</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">XYZ</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">Double</span>, <span class="kt">Double</span><span class="o">]]</span> <span class="k">=</span> <span class="o">{</span>
     <span class="nf">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">numberToCreate</span><span class="o">)</span> <span class="nc">Nil</span>
     <span class="k">else</span> <span class="o">{</span>
       <span class="k">val</span> <span class="nv">xs</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">length</span><span class="o">)</span>
@@ -396,9 +407,8 @@ $('#toc').on('click', 'a', function() {
       <span class="n">series</span> <span class="o">::</span> <span class="nf">createXYZSeries</span><span class="o">(</span><span class="n">numberToCreate</span><span class="o">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">length</span><span class="o">)</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">series</span> <span class="k">=</span> <span class="nf">createXYZSeries</span><span class="o">(</span><span class="n">numberToCreate</span> <span class="k">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">length</span> <span class="k">=</span> <span class="mi">100</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">series</span> <span class="k">=</span> <span class="nf">createXYZSeries</span><span class="o">(</span><span class="n">numberToCreate</span> <span class="k">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">length</span> <span class="k">=</span> <span class="mi">100</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">layout</span> <span class="k">=</span> <span class="nc">ChartLayout</span><span class="o">()</span>
 
@@ -406,6 +416,14 @@ $('#toc').on('click', 'a', function() {
 
 <span class="nv">chart</span><span class="o">.</span><span class="py">plotInline</span>
 </code></pre></div></div>
+
+<p>This will produce the following plot:</p>
+
+<p><img src="images/charts/animationXYZ.png" alt="animationxyz" /></p>
+
+<h3 id="animating-multiple-series">Animating Multiple Series</h3>
+
+<p>For both types of charts, we can also animate multiple series.</p>
 
 
     <div class="tags">
@@ -423,7 +441,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 Carbonate Research Lab, Imperial College London. All rights reserved. <br />
- Site last generated: Jul 23, 2020 <br />
+ Site last generated: Aug 5, 2020 <br />
 <p><img id="footer-logo" src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

@@ -59,6 +59,17 @@
 
 
 {
+"title": "Common Examples",
+"tags": "",
+"keywords": "",
+"url": "common_examples.html",
+"summary": "This section will outline how to create your first chart using the Picta library."
+}
+,
+
+
+
+{
 "title": "Config",
 "tags": "",
 "keywords": "",
@@ -87,7 +98,7 @@
 "tags": "getting_started",
 "keywords": "homepage",
 "url": "index.html",
-"summary": "Picta is a a graphing library for Scala. It is designed to take a grammatical approach to graph construction, which means charts are composable and easy to use."
+"summary": "Picta is a a graphing library for Scala. It is designed so that charts are composable and easy to use."
 }
 ,
 

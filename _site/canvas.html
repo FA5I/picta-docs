@@ -275,6 +275,22 @@
    </li>
      
       
+  
+  <li>
+      <a title="Common Examples" href="#">Common Examples</a>
+      <ul>
+          
+          
+          
+          <li><a title="Common Examples" href="common_examples">Common Examples</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
       
       <!-- if you aren't using the accordion, uncomment this block:
          <p class="external">
@@ -356,30 +372,25 @@ $('#toc').on('click', 'a', function() {
 <span class="o">))</span>
 </code></pre></div></div>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">$ivy.</span> <span class="n">`org.carbonateresearch::picta:0.1`</span>
-
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta.render.Html.initNotebook</span>
-<span class="nf">initNotebook</span><span class="o">()</span>
-
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
 
 <span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options._</span>
 </code></pre></div></div>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">x</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">y</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// create some dummy data</span>
+<span class="k">def</span> <span class="nf">genRandomSeries</span><span class="o">()</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
 
 <span class="c1">// first define the x-axes we will use in the plot</span>
-<span class="k">val</span> <span class="nv">ax1</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"x axis 1"</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax2</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"x axis 2"</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax3</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"x axis 3"</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax4</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"x axis 4"</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax1</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"x axis 1"</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax2</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"x axis 2"</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax3</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"x axis 3"</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax4</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"x axis 4"</span><span class="o">)</span>
 
 <span class="c1">// first define the y-axes we will use in the plot</span>
-<span class="k">val</span> <span class="nv">ax6</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"y axis 1"</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax7</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"y axis 2"</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax8</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"y axis 3"</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax9</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">title</span> <span class="k">=</span> <span class="s">"y axis 4"</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax6</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">Y</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"y axis 1"</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax7</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">Y</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"y axis 2"</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax8</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">Y</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"y axis 3"</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax9</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">Y</span><span class="o">,</span> <span class="n">title</span> <span class="k">=</span> <span class="s">"y axis 4"</span><span class="o">)</span>
 
 <span class="c1">// it may be necessary to play around with the chart dimensions and margin  in order to ensure a good fit on screen.</span>
 <span class="k">val</span> <span class="nv">dim</span> <span class="k">=</span> <span class="mi">350</span>
@@ -387,18 +398,42 @@ $('#toc').on('click', 'a', function() {
 <span class="k">val</span> <span class="nv">chart1</span> <span class="k">=</span> <span class="o">(</span>
     <span class="nc">Chart</span><span class="o">()</span>
     <span class="nf">setDimensions</span><span class="o">(</span><span class="n">width</span> <span class="k">=</span> <span class="n">dim</span><span class="o">,</span> <span class="n">height</span> <span class="k">=</span> <span class="n">dim</span><span class="o">)</span>
-    <span class="nf">addSeries</span> <span class="o">(</span><span class="nc">XY</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">).</span><span class="py">setName</span><span class="o">(</span><span class="s">"a"</span><span class="o">).</span><span class="py">drawMarkers</span><span class="o">)</span>
+    <span class="nf">addSeries</span> <span class="o">(</span><span class="nc">XY</span><span class="o">(</span><span class="nf">genRandomSeries</span><span class="o">(),</span> <span class="nf">genRandomSeries</span><span class="o">()).</span><span class="py">setName</span><span class="o">(</span><span class="s">"a"</span><span class="o">).</span><span class="py">drawMarkers</span><span class="o">)</span>
     <span class="nf">addAxes</span><span class="o">(</span><span class="n">ax1</span><span class="o">,</span> <span class="n">ax6</span><span class="o">)</span>
+    <span class="nf">setMargin</span><span class="o">(</span><span class="n">l</span><span class="k">=</span><span class="mi">50</span><span class="o">,</span> <span class="n">r</span><span class="k">=</span><span class="mi">30</span><span class="o">,</span> <span class="n">t</span><span class="k">=</span><span class="mi">50</span><span class="o">,</span> <span class="n">b</span><span class="k">=</span><span class="mi">50</span><span class="o">)</span>
+<span class="o">)</span>
+
+<span class="k">val</span> <span class="nv">chart2</span> <span class="k">=</span> <span class="o">(</span>
+    <span class="nc">Chart</span><span class="o">()</span>
+    <span class="nf">setDimensions</span><span class="o">(</span><span class="n">width</span> <span class="k">=</span> <span class="n">dim</span><span class="o">,</span> <span class="n">height</span> <span class="k">=</span> <span class="n">dim</span><span class="o">)</span>
+    <span class="nf">addSeries</span> <span class="o">(</span><span class="nc">XY</span><span class="o">(</span><span class="nf">genRandomSeries</span><span class="o">(),</span> <span class="nf">genRandomSeries</span><span class="o">()).</span><span class="py">setName</span><span class="o">(</span><span class="s">"b"</span><span class="o">).</span><span class="py">drawMarkers</span><span class="o">)</span>
+    <span class="nf">addAxes</span><span class="o">(</span><span class="n">ax2</span><span class="o">,</span> <span class="n">ax7</span><span class="o">)</span>
+    <span class="nf">setMargin</span><span class="o">(</span><span class="n">l</span><span class="k">=</span><span class="mi">50</span><span class="o">,</span> <span class="n">r</span><span class="k">=</span><span class="mi">30</span><span class="o">,</span> <span class="n">t</span><span class="k">=</span><span class="mi">50</span><span class="o">,</span> <span class="n">b</span><span class="k">=</span><span class="mi">50</span><span class="o">)</span>
+<span class="o">)</span>
+
+<span class="k">val</span> <span class="nv">chart3</span> <span class="k">=</span> <span class="o">(</span>
+    <span class="nc">Chart</span><span class="o">()</span>
+    <span class="nf">setDimensions</span><span class="o">(</span><span class="n">width</span> <span class="k">=</span> <span class="n">dim</span><span class="o">,</span> <span class="n">height</span> <span class="k">=</span> <span class="n">dim</span><span class="o">)</span>
+    <span class="nf">addSeries</span> <span class="o">(</span><span class="nc">XY</span><span class="o">(</span><span class="nf">genRandomSeries</span><span class="o">(),</span> <span class="nf">genRandomSeries</span><span class="o">()).</span><span class="py">setName</span><span class="o">(</span><span class="s">"c"</span><span class="o">).</span><span class="py">drawMarkers</span><span class="o">)</span>
+    <span class="nf">addAxes</span><span class="o">(</span><span class="n">ax3</span><span class="o">,</span> <span class="n">ax8</span><span class="o">)</span>
+    <span class="nf">setMargin</span><span class="o">(</span><span class="n">l</span><span class="k">=</span><span class="mi">50</span><span class="o">,</span> <span class="n">r</span><span class="k">=</span><span class="mi">30</span><span class="o">,</span> <span class="n">t</span><span class="k">=</span><span class="mi">50</span><span class="o">,</span> <span class="n">b</span><span class="k">=</span><span class="mi">50</span><span class="o">)</span>
+<span class="o">)</span>
+
+<span class="k">val</span> <span class="nv">chart4</span> <span class="k">=</span> <span class="o">(</span>
+    <span class="nc">Chart</span><span class="o">()</span>
+    <span class="nf">setDimensions</span><span class="o">(</span><span class="n">width</span> <span class="k">=</span> <span class="n">dim</span><span class="o">,</span> <span class="n">height</span> <span class="k">=</span> <span class="n">dim</span><span class="o">)</span>
+    <span class="nf">addSeries</span> <span class="o">(</span><span class="nc">XY</span><span class="o">(</span><span class="nf">genRandomSeries</span><span class="o">(),</span> <span class="nf">genRandomSeries</span><span class="o">()).</span><span class="py">setName</span><span class="o">(</span><span class="s">"d"</span><span class="o">).</span><span class="py">drawMarkers</span><span class="o">)</span>
+    <span class="nf">addAxes</span><span class="o">(</span><span class="n">ax4</span><span class="o">,</span> <span class="n">ax9</span><span class="o">)</span>
     <span class="nf">setMargin</span><span class="o">(</span><span class="n">l</span><span class="k">=</span><span class="mi">50</span><span class="o">,</span> <span class="n">r</span><span class="k">=</span><span class="mi">30</span><span class="o">,</span> <span class="n">t</span><span class="k">=</span><span class="mi">50</span><span class="o">,</span> <span class="n">b</span><span class="k">=</span><span class="mi">50</span><span class="o">)</span>
 <span class="o">)</span>
 
 <span class="c1">// The canvas has an underlying grid. By default the underlying grid is 1x1, but we can pass in the dimensions we </span>
 <span class="c1">// require by passing in parameters in the constructor.</span>
-<span class="nc">Canvas</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="n">title</span><span class="o">=</span><span class="s">"The Picta Grid"</span><span class="o">)</span>
+<span class="nc">Canvas</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
 <span class="o">.</span><span class="py">setChart</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">chart1</span><span class="o">)</span>
-<span class="o">.</span><span class="py">setChart</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">chart1</span><span class="o">)</span>
-<span class="o">.</span><span class="py">setChart</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">chart1</span><span class="o">)</span>
-<span class="o">.</span><span class="py">setChart</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">chart1</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setChart</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">chart2</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setChart</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">chart3</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setChart</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">chart4</span><span class="o">)</span>
 <span class="o">.</span><span class="py">plotInline</span>
 </code></pre></div></div>
 
@@ -422,7 +457,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 Carbonate Research Lab, Imperial College London. All rights reserved. <br />
- Site last generated: Jul 23, 2020 <br />
+ Site last generated: Aug 5, 2020 <br />
 <p><img id="footer-logo" src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

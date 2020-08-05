@@ -4,22 +4,24 @@ keywords: homepage
 tags: [getting_started]
 sidebar: sidebar
 permalink: index.html
-summary: Picta is a a graphing library for Scala. It is designed to take a grammatical approach to graph construction, which means charts are composable and easy to use.
+summary: Picta is a a graphing library for Scala. It is designed so that charts are composable and easy to use.
 ---
 
 ## What is Picta?
 
 Picta is a graphing library for Scala built by the Carbonate Research Lab at Imperial College London.
 
-The goal of Picta is to be an easy to use, composable graphics library. We felt that such a library was missing from the Scala, and indeed the JVM platform. 
+The goal of Picta is to be an easy to use, composable graphics library. 
+
+We felt that such a library was missing from the Scala, and indeed the JVM platform. 
 
 Picta provides the following benefits over existing libraries:
 
-* **Expressive API**: Picta reduces boilerplate by creating a DSL that users can leverage to write expressive plot compositions in a minimal amount of code
+* **Expressive API**: Picta reduces boilerplate by creating a DSL that users can leverage to write expressive plot compositions in a minimal amount of code.
 
-* **Interactive Plots**: Charts are interactive and can be used to actively explore the data sets
+* **Interactive Plots**: Charts are interactive and can be used to actively explore the data sets.
 
-* **Jupyter Integration**: Picta fully supports the Almond kernel, and so can become an integral part of the scientific workflow
+* **Jupyter Integration**: Picta fully supports the Almond kernel, and so can become an integral part of the scientific workflow.
 
 Often libraries are limited in functionality, require large amounts of boilerplate, or are just fundamentally ***not fun*** to use.
 
@@ -33,9 +35,9 @@ Support for further Scala Notebook kernels, such as Zeppelin will be added in th
 
 ## How is it different to other libraries?
 
-If you use Picta for charting, it will ***feel*** different from other libraries available on the JVM, and not because it is channeling some kind of cosmic energy direct in to your brain.
+If you use Picta for charting it will ***feel*** different from other libraries available on the JVM, and not because it is channeling some kind of cosmic energy direct in to your brain.
 
-The real reason is, unlike other libaries, Picta attempts to define a simple way to create charts, inspired in part by Leland Wilkinson's **Grammar of Graphics** approach. That said, Picta's grammar is dictated somewhat by the Plotlyjs dependency and so some things may look familiar for users coming from the Plotlyjs library.
+The real reason is, unlike other libaries, Picta attempts to define a simple way to create charts, inspired in part by Leland Wilkinson's **Grammar of Graphics** approach.
 
 ## Installing the library
 

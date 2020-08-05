@@ -275,6 +275,22 @@
    </li>
      
       
+  
+  <li>
+      <a title="Common Examples" href="#">Common Examples</a>
+      <ul>
+          
+          
+          
+          <li><a title="Common Examples" href="common_examples">Common Examples</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
       
       <!-- if you aren't using the accordion, uncomment this block:
          <p class="external">
@@ -363,40 +379,11 @@ $('#toc').on('click', 'a', function() {
 
 <p>For the code examples that follow, it will be assumed that the reader is working in a Jupyter notebook.</p>
 
-<h3 id="1-loading-the-library">1. Loading the Library</h3>
-
-<p>The library can be loaded in the notebook using the following commands:</p>
-
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">interp</span><span class="o">.</span><span class="py">repositories</span><span class="o">()</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span><span class="nv">coursierapi</span><span class="o">.</span><span class="py">MavenRepository</span><span class="o">.</span><span class="py">of</span><span class="o">(</span>
-    <span class="s">"https://jitpack.io"</span>
-<span class="o">))</span>
-</code></pre></div></div>
-
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">$ivy.</span> <span class="n">`org.carbonateresearch::picta:0.1`</span>
-
-<span class="c1">// required to initialize jupyter notebook mode</span>
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta.render.Html.initNotebook</span> 
-
-<span class="c1">// stops ugly output</span>
-<span class="nf">initNotebook</span><span class="o">()</span> 
-
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
-</code></pre></div></div>
-
-<h3 id="2-create-some-dummy-data">2. Create some dummy data</h3>
-
-<p>First we will create some dummy data:</p>
-
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// lets create some dummy data to use in our examples</span>
-<span class="k">val</span> <span class="nv">x</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">y</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="3-construct-the-chart">3. Construct the Chart</h3>
+<h3 id="1-code-up-the-chart">1. Code Up The Chart</h3>
 
 <p>We are ready to construct the first main component for our chart; the <strong>Series</strong>.</p>
 
-<p>As we are going to plot 2D data, we can use the appropriately named <strong>XY</strong> class:</p>
+<p>As we are going to plot 2D data, we can use the appropriately named <strong>XY</strong> series. It will be assumed the reader is working in a Jupyter notebook.</p>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// create some dummy data</span>
 <span class="k">val</span> <span class="nv">x</span> <span class="k">=</span> <span class="nv">List</span><span class="o">.</span><span class="py">range</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">).</span><span class="py">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="nv">scala</span><span class="o">.</span><span class="py">util</span><span class="o">.</span><span class="py">Random</span><span class="o">.</span><span class="py">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="mi">50</span><span class="o">)</span>
@@ -412,13 +399,13 @@ $('#toc').on('click', 'a', function() {
 <span class="nv">chart</span><span class="o">.</span><span class="py">plotInline</span>
 </code></pre></div></div>
 
-<h3 id="4-admire-the-result">4. Admire the Result</h3>
+<h3 id="2-admire-the-result">2. Admire The Result</h3>
 
 <p>Your chart should like something below:</p>
 
 <p><img src="images/first_chart/first_chart.png" alt="first_chart" /></p>
 
-<p>Congratulations! You have created your first chart using Picta.</p>
+<p>Congratulations! You have created your first chart using Picta. The rest of the documentation will go into more detail about configuration and common examples.</p>
 
 
     <div class="tags">
@@ -436,7 +423,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 Carbonate Research Lab, Imperial College London. All rights reserved. <br />
- Site last generated: Jul 23, 2020 <br />
+ Site last generated: Aug 5, 2020 <br />
 <p><img id="footer-logo" src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

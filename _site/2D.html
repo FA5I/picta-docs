@@ -275,6 +275,22 @@
    </li>
      
       
+  
+  <li>
+      <a title="Common Examples" href="#">Common Examples</a>
+      <ul>
+          
+          
+          
+          <li><a title="Common Examples" href="common_examples">Common Examples</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
       
       <!-- if you aren't using the accordion, uncomment this block:
          <p class="external">
@@ -336,33 +352,29 @@ $('#toc').on('click', 'a', function() {
 
 <p>2D charts are created with a similar set of components. The most import of these is the <code class="language-plaintext highlighter-rouge">XY</code> series component that allows us to map 2D data to a familiar set of plots.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">XY</code> series takes the following arguments:</p>
+<p>The <code class="language-plaintext highlighter-rouge">XY</code> series takes a number of arguments. For a full list please consult the API docs.</p>
+
+<p>The most important parameter is the <code class="language-plaintext highlighter-rouge">type</code> parameter. For 2D charts this can take the following values:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">x</code>: The data series for the first dimension.</li>
-  <li><code class="language-plaintext highlighter-rouge">y</code>: The data series for the second dimension.</li>
-  <li><code class="language-plaintext highlighter-rouge">name</code>: The name for the series.</li>
-  <li><code class="language-plaintext highlighter-rouge">type</code>: The type for the series, which determines how it is rendered.</li>
-  <li><code class="language-plaintext highlighter-rouge">style</code>: This specifies the style for the marker.</li>
-  <li><code class="language-plaintext highlighter-rouge">xaxis</code>: This specifies the xaxis that the series maps to.</li>
-  <li><code class="language-plaintext highlighter-rouge">yaxis</code>: This specifies the yaxis that the series maps to.</li>
-  <li><code class="language-plaintext highlighter-rouge">marker</code>: This is a Marker component that sets a range of marker-specific options.</li>
-  <li><code class="language-plaintext highlighter-rouge">hist_options</code>: This is a HistOptions component that sets a range of histogram specific options</li>
-  <li><code class="language-plaintext highlighter-rouge">hist2d_options</code>: This is a Hist2dOptions component that sets 2D histogram specific options.</li>
-  <li><code class="language-plaintext highlighter-rouge">xerror</code>: This specifies the behaviour of the x error bar.</li>
-  <li><code class="language-plaintext highlighter-rouge">yerror</code>: This specifies the behaviour of the y error bar.</li>
-</ul>
-
-<h3 id="types-of-2d-charts-available">Types of 2D Charts Available</h3>
-
-<p>Picta allows many different charts to be composed, but at the base level the following can types of series can be created:</p>
-
-<ul>
-  <li>Scatter</li>
-  <li>Bar</li>
-  <li>Histogram</li>
-  <li>Pie</li>
-  <li>2D Density Histogram</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">SCATTER</code>: This is for a regular scatter series. Can also be used to create a line chart by setting the <code class="language-plaintext highlighter-rouge">style</code>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">SCATTERGL</code>: Same as above, but this uses WebGL for rendering, so gives better performance for larger data points.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">BAR</code>: This transforms the series to a bar chart.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">HISTOGRAM2DCONTOUR</code>: This transforms the series to a 2D density histogram contour plot.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">HISTOGRAM</code>: This is used to transform the series to a histogram.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">PIE</code>: This can be used to transform a series to a pie chart. Pie charts can also be composed piece by piece.</p>
+  </li>
 </ul>
 
 <h3 id="composition">Composition</h3>
@@ -373,18 +385,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>In order to demonstrate the above examples, the following example will show how to create a 2D density histogram chart that has multiple axes. A fully exhaustive list of examples for each and every chart type would not be feasible given how customizable charts are.</p>
 
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">interp</span><span class="o">.</span><span class="py">repositories</span><span class="o">()</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span><span class="nv">coursierapi</span><span class="o">.</span><span class="py">MavenRepository</span><span class="o">.</span><span class="py">of</span><span class="o">(</span>
-    <span class="s">"https://jitpack.io"</span>
-<span class="o">))</span>
-</code></pre></div></div>
-
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">$ivy.</span> <span class="n">`org.carbonateresearch::picta:0.1`</span>
-
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta.render.Html.initNotebook</span>
-
-<span class="nf">initNotebook</span><span class="o">()</span>
-
-<span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.carbonateresearch.picta._</span>
 <span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.Marker</span>
 <span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.histogram.HistOptions</span>
 <span class="k">import</span> <span class="nn">org.carbonateresearch.picta.options.histogram2d.Hist2dOptions</span>
@@ -412,22 +413,22 @@ $('#toc').on('click', 'a', function() {
 <span class="k">val</span> <span class="nv">series3</span> <span class="k">=</span> <span class="nc">XY</span><span class="o">(</span><span class="n">x</span> <span class="k">=</span> <span class="n">x</span><span class="o">)</span>
             <span class="o">.</span><span class="py">asType</span><span class="o">(</span><span class="nc">HISTOGRAM</span><span class="o">)</span>
             <span class="o">.</span><span class="py">setName</span><span class="o">(</span><span class="s">"histogram"</span><span class="o">)</span>
-            <span class="o">.</span><span class="py">setAxes</span><span class="o">(</span><span class="nc">XAxis</span><span class="o">(),</span> <span class="nc">YAxis</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>
+            <span class="o">.</span><span class="py">setAxes</span><span class="o">(</span><span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">),</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">Y</span><span class="o">,</span> <span class="mi">2</span><span class="o">))</span>
 
 <span class="k">val</span> <span class="nv">series4</span> <span class="k">=</span> <span class="o">(</span><span class="nc">XY</span><span class="o">(</span><span class="n">y</span><span class="o">)</span>
             <span class="o">.</span><span class="py">setName</span><span class="o">(</span><span class="s">"y density"</span><span class="o">)</span>
             <span class="o">.</span><span class="py">asType</span><span class="o">(</span><span class="nc">HISTOGRAM</span><span class="o">)</span>
-            <span class="o">.</span><span class="py">setAxis</span><span class="o">(</span><span class="nc">XAxis</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>
+            <span class="o">.</span><span class="py">setAxis</span><span class="o">(</span><span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="mi">2</span><span class="o">))</span>
             <span class="o">.</span><span class="py">setMarker</span><span class="o">(</span><span class="n">marker</span><span class="o">)</span>
             <span class="o">.</span><span class="py">setHistOptions</span><span class="o">(</span><span class="nc">HistOptions</span><span class="o">(</span><span class="n">orientation</span> <span class="k">=</span> <span class="nc">HORIZONTAL</span><span class="o">)))</span>
 
-<span class="k">val</span> <span class="nv">ax1</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.85</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax2</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.85</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax3</span> <span class="k">=</span> <span class="nc">XAxis</span><span class="o">(</span><span class="n">position</span> <span class="k">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.85</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">)</span>
-<span class="k">val</span> <span class="nv">ax4</span> <span class="k">=</span> <span class="nc">YAxis</span><span class="o">(</span><span class="n">position</span> <span class="k">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.85</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax1</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">,</span><span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.85</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax2</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">Y</span><span class="o">,</span> <span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.85</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax3</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">position</span> <span class="k">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.85</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">)</span>
+<span class="k">val</span> <span class="nv">ax4</span> <span class="k">=</span> <span class="nc">Axis</span><span class="o">(</span><span class="n">Y</span><span class="o">,</span> <span class="n">position</span> <span class="k">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">showgrid</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> <span class="nf">setDomain</span><span class="o">(</span><span class="mf">0.85</span><span class="o">,</span> <span class="mf">1.0</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">layout</span> <span class="k">=</span> <span class="o">(</span>
-    <span class="nc">ChartLayout</span><span class="o">(</span><span class="s">"Histogram2dContour With Density"</span><span class="o">,</span> <span class="n">autosize</span> <span class="k">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">showlegend</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> 
+    <span class="nc">ChartLayout</span><span class="o">(</span><span class="s">"Histogram2dContour With Density"</span><span class="o">,</span> <span class="n">auto_size</span> <span class="k">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">show_legend</span> <span class="k">=</span> <span class="kc">false</span><span class="o">)</span> 
     <span class="nf">setAxes</span><span class="o">(</span><span class="n">ax1</span><span class="o">,</span> <span class="n">ax2</span><span class="o">,</span> <span class="n">ax3</span><span class="o">,</span> <span class="n">ax4</span><span class="o">)</span>
 <span class="o">)</span>
 
@@ -438,7 +439,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>The above code will produce something that looks similar to the below image:</p>
 
-<p><img src="images/charts/2dhistogram.png" alt="histogram_2d_density" /></p>
+<p><img src="images/charts/2dhistogram.png" alt="animation2D" /></p>
 
 
     <div class="tags">
@@ -456,7 +457,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 Carbonate Research Lab, Imperial College London. All rights reserved. <br />
- Site last generated: Jul 23, 2020 <br />
+ Site last generated: Aug 5, 2020 <br />
 <p><img id="footer-logo" src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

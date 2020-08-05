@@ -62,4 +62,11 @@ entries:
       url: /animations.html
       output: web, pdf
       type: homepage
-    
+
+  - title: Common Examples
+    output: web, pdf
+    folderitems:
+    - title: Common Examples
+      url:  /common_examples
+      output: web, pdf
+      type: homepage
