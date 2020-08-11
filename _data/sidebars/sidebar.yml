@@ -70,3 +70,11 @@ entries:
       url:  /common_examples
       output: web, pdf
       type: homepage
+
+  - title: Styling
+    output: web, pdf
+    folderitems:
+    - title: Marker Styles
+      url:  /marker_styles
+      output: web, pdf
+      type: homepage

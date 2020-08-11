@@ -13,4 +13,6 @@ Below is a link to a number of different plot examples. These plots have been ru
 
 The notebook, ```Picta-Examples-Notebook```, can be found in the code repo.
 
+A HTML version of that note book can be found at the link below.
+
 [Common Examples]({{site.baseurl}}/pages/Picta-Examples-Notebook.html)
