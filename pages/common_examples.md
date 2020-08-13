@@ -7,8 +7,6 @@ folder: pages
 summary: This section will outline how to create your first chart using the Picta library.
 ---
 
-### Intro
-
 Below is a link to a number of different plot examples. These plots have been run inside a Jupyter notebook.
 
 The notebook, ```Picta-Examples-Notebook```, can be found in the code repo.

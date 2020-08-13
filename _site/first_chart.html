@@ -46,21 +46,21 @@
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
-            $("#mysidebar").navgoco({
-                caretHtml: '',
-                accordion: true,
-                openClass: 'active', // open
-                save: false, // leave false or nav highlighting doesn't work right
-                cookie: {
-                    name: 'navgoco',
-                    expires: false,
-                    path: '/'
-                },
-                slide: {
-                    duration: 400,
-                    easing: 'swing'
-                }
-            });
+            // $("#mysidebar").navgoco({
+            //     caretHtml: '',
+            //     accordion: false,
+            //     openClass: 'active', // open
+            //     save: false, // leave false or nav highlighting doesn't work right
+            //     cookie: {
+            //         name: 'navgoco',
+            //         expires: false,
+            //         path: '/'
+            //     },
+            //     slide: {
+            //         duration: 400,
+            //         easing: 'swing'
+            //     }
+            // });
 
             $("#collapseAll").click(function(e) {
                 e.preventDefault();
@@ -307,11 +307,27 @@
    </li>
      
       
+  
+  <li>
+      <a title="Roadmap" href="#">Roadmap</a>
+      <ul>
+          
+          
+          
+          <li><a title="Roadmap" href="roadmap">Roadmap</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
       
-      <!-- if you aren't using the accordion, uncomment this block:
-         <p class="external">
+      
+      <!-- if you aren't using the accordion, uncomment this block:-->
+         <!-- <p class="external">
              <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
-         </p> -->
+         </p>  -->
         
 </ul>
 
@@ -439,7 +455,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 Carbonate Research Lab, Imperial College London. All rights reserved. <br />
- Site last generated: Aug 11, 2020 <br />
+ Site last generated: Aug 13, 2020 <br />
 <p><img id="footer-logo" src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

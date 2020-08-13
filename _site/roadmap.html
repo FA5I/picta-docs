@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Charts structure how the graph is rendered">
+<meta name="description" content="This section will outline what to expect in future releases of Picta.">
 <meta name="keywords" content=" ">
-<title>Chart | A Graphing Library for Scala</title>
+<title>Roadmap | A Graphing Library for Scala</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -149,7 +149,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Chart">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Roadmap">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -215,7 +215,7 @@
           
           
           
-          <li class="active"><a title="Chart" href="chart.html">Chart</a></li>
+          <li><a title="Chart" href="chart.html">Chart</a></li>
           
           
           
@@ -341,7 +341,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Chart</h1>
+   <h1 class="post-title-main">Roadmap</h1>
 </div>
 
 
@@ -349,7 +349,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Charts structure how the graph is rendered</div>
+    <div class="summary">This section will outline what to expect in future releases of Picta.</div>
    
 
     
@@ -380,27 +380,25 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <h3 id="introduction">Introduction</h3>
-
-<p>Charts are created from multiple Components, and are highly customizable. The best way to get acquainted with charts is to create different types of plots.</p>
-
-<h3 id="creating-a-chart">Creating a Chart</h3>
-
-<p>The following is the constructor for the chart. Now in practice not all of these items need to be individually specified. The example will make this clearer.</p>
+   <p>Picta is under continuous, active development. Currently on the roadmap are the following developments:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">series</code>: A list of series we wish to plot.</li>
-  <li><code class="language-plaintext highlighter-rouge">layout</code>: This specifies how the chart will be laid out.</li>
-  <li><code class="language-plaintext highlighter-rouge">config</code>: This configures the chart.</li>
-  <li><code class="language-plaintext highlighter-rouge">animated</code>: This specifies whether the chart is animated.</li>
-  <li><code class="language-plaintext highlighter-rouge">transition_duration</code>: If the chart is animated, this specifies the duration between the frames.</li>
+  <li>
+    <p><strong>Annotations</strong>: This will allow data points to be annotated on the plot.</p>
+  </li>
+  <li>
+    <p><strong>Movies</strong>: Currently animated plots cannot be saved as movies, due to the limitations of saving HTML charts as films.
+            It is hoped that all animated charts will eventually be able to be saved as films.</p>
+  </li>
+  <li>
+    <p><strong>Sync colorbar to z-axis</strong>: At present the colorbar and z-axis for an XYZ plot are not synced. The plan is to link the z-axis values
+                              to the colorbar, so that in an animated plot the frames are directly comparable.</p>
+  </li>
+  <li>
+    <p><strong>Add support for additional plots</strong>: Plots such as Ternary, Filled Area and Parallel Coordinate plots are not possible. Additional plots like
+                                      these are planned to be added with future releases of Picta.</p>
+  </li>
 </ul>
-
-<h3 id="the-chart-in-action">The Chart in Action</h3>
-
-<p>As the following example makes  clear, we do not need to specify every single Component that constructs a Chart fully. We can sculpt the Chart specifying options where we need to.</p>
-
-<p>An example can be found here: <a href="/first_chart.html">Your First Chart</a></p>
 
 
     <div class="tags">
