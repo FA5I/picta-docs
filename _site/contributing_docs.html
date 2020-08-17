@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="This section will outline how to create your first chart using the Picta library.">
+<meta name="description" content="This section exlains how to contribute to these docs.">
 <meta name="keywords" content=" ">
-<title>Common Examples | A Graphing Library for Scala</title>
+<title>Contributing to this documentation | A Graphing Library for Scala</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -149,7 +149,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Common Examples">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Contributing to this documentation">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -357,7 +357,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Common Examples</h1>
+   <h1 class="post-title-main">Contributing to this documentation</h1>
 </div>
 
 
@@ -365,7 +365,7 @@
 <div class="post-content">
 
    
-    <div class="summary">This section will outline how to create your first chart using the Picta library.</div>
+    <div class="summary">This section exlains how to contribute to these docs.</div>
    
 
     
@@ -396,13 +396,36 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>Below is a link to a number of different plot examples. These plots have been run inside a Jupyter notebook.</p>
+   <h2 id="introduction">Introduction</h2>
 
-<p>The notebook, <code class="language-plaintext highlighter-rouge">Picta-Examples-Notebook</code>, can be found in the code repo.</p>
+<p>These docs are made using <a href="https://jekyllrb.com">Jekyll</a>.</p>
 
-<p>A HTML version of that note book can be found at the link below.</p>
+<p>These docs use the theme created by <a href="https://github.com/tomjoht/documentation-theme-jekyll">tomjoht</a>.</p>
 
-<p><a href="/pages/Picta-Examples-Notebook.html">Common Examples</a></p>
+<h2 id="setting-up-the-docs-locally">Setting Up The Docs Locally</h2>
+
+<p>If you would like to run the doc site locally, follow these steps.</p>
+
+<p>Running the doc site locally allows you to see any changes you make before pushing to git:</p>
+
+<ol>
+  <li>Install <a href="https://jekyllrb.com">Jekyll</a></li>
+  <li>Clone this repository</li>
+  <li><code class="language-plaintext highlighter-rouge">cd</code> into the folder containing the <code class="language-plaintext highlighter-rouge">Gemfile</code></li>
+  <li>Run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve --baseUrl ""</code> to start the Jekyll server</li>
+  <li>Go to http://localhost:4000 and you should see the documentation site running locally</li>
+</ol>
+
+<h2 id="how-to-add-pages">How to Add Pages</h2>
+
+<p>Contributing to the docs generally consists of two steps:</p>
+
+<ol>
+  <li>Create a markdown page in the <code class="language-plaintext highlighter-rouge">/pages/</code> folder</li>
+  <li>Make sure to give the page an appropriate <code class="language-plaintext highlighter-rouge">key: value</code> pairs (i.e. <code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">folder</code>, etc.) at the top of the page. You can check the existing pages for examples.</li>
+  <li>Next, open <code class="language-plaintext highlighter-rouge">_data/sidebars/sidebar.yml</code></li>
+  <li>In this file, you will need to add the page you created to the sidebar. This ensures the page you created appears in the right place. You can take a look at existing pages to get an idea.</li>
+</ol>
 
 
     <div class="tags">
