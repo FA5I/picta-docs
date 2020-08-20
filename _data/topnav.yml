@@ -7,4 +7,4 @@ topnav:
         external_url: https://github.com/cedricmjohn/picta
 
       - title: API
-        external_url: /pages/api/index.html
+        external_url: /picta-docs/pages/api/index.html
