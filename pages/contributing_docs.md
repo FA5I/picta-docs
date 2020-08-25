@@ -1,6 +1,6 @@
 ---
 id: contributing_docs
-title: Contributing to this documentation
+title: Contributing To This Documentation
 sidebar: sidebar
 permalink: contributing_docs.html
 folder: pages
