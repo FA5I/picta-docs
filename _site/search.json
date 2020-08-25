@@ -59,17 +59,6 @@
 
 
 {
-"title": "Common Examples",
-"tags": "",
-"keywords": "",
-"url": "common_examples.html",
-"summary": "This section will outline how to create your first chart using the Picta library."
-}
-,
-
-
-
-{
 "title": "Config",
 "tags": "",
 "keywords": "",
@@ -97,6 +86,17 @@
 "keywords": "",
 "url": "contributing_library.html",
 "summary": "This section exlains how to contribute to the library codebase."
+}
+,
+
+
+
+{
+"title": "Example Gallery",
+"tags": "",
+"keywords": "",
+"url": "example_gallery.html",
+"summary": "This section will showcase a number of different Picta plots."
 }
 ,
 

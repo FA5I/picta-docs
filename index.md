@@ -13,6 +13,8 @@ Picta is a graphing library for the Scala programming language built by the Carb
 
 The goal of Picta is to be an easy to use, composable graphics library.
 
+If you would like to see an overview of the types of charts that can be created by Picta, navigate, click on the `Example Gallery` link on the left sidebar.
+
 We felt that such a library was missing from the Scala, and indeed the JVM ecosystem.
 
 Picta provides the following benefits over existing libraries:

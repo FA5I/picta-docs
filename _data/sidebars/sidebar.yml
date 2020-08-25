@@ -71,11 +71,11 @@ entries:
             output: web, pdf
             type: homepage
 
-      - title: Common Examples
+      - title: Example Gallery
         output: web, pdf
         folderitems:
-          - title: Common Examples
-            url: /common_examples
+          - title: Example Gallery
+            url: /example_gallery
             output: web, pdf
             type: homepage
 
